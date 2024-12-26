@@ -7,7 +7,7 @@ export default function Home() {
       <MaxWidthWrapper>
         <section className=" flex flex-col justify-center items-start m-4 px-5 pb-10 gap-2 border-b">
           <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-4xl lg:leading-[1.1]">Some Edgy title for the website.</h1>
-          <p className="max-w-2xl text-balance text-lg font-light text-foreground">Some paragraph for the explainantion of what website does. Maybe 2 lines. Some paragraph for the explainantion of what website does. Maybe 2 lines.</p>
+          <p className="text-balance text-lg font-light text-foreground ">Some paragraph for the explainantion of what website does. Maybe 2 lines. Some paragraph for the explainantion of what website does. Maybe 2 lines.</p>
         </section>
         <section className="flex flex-col justify-center items-center w-full">
           <CardContainer />
