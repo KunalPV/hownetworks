@@ -6,8 +6,8 @@ import { ModeToggle } from "./ModeToggle";
 
 export default function Navbar() {
   return(
-    <div className=" sticky top-0 z-50 border-b">
-      <MaxWidthWrapper className="w-full p-2">
+    <div className="sticky top-0 z-50 border-b w-full">
+      <MaxWidthWrapper className="p-2">
         <div className="flex justify-between items-center py-1 px-2">
           <div className="flex justify-end items-center gap-6">
             <div className="flex justify-between items-center gap-1 p-1">
