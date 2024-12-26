@@ -12,7 +12,7 @@ export default function Navbar() {
           <div className="flex justify-end items-center gap-6">
             <div className="flex justify-between items-center gap-1 p-1">
               <Cable  />
-              <h1 className="font-bold text-xl">HowNetWorks</h1>
+              <Link href="/" className="font-bold text-xl">HowNetWorks</Link>
             </div>
             <div className="flex justify-between items-center gap-4 tracking-wide p-1">
               <Link href="/">Home</Link>
