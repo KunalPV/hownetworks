@@ -5,13 +5,10 @@ import { topics } from "@/data/topic";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { ArrowLeft, FlaskConicalOff, RotateCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Cookie from "../../../../public/images/cookie.svg"
 import Image from "next/image";
-import { ScrollArea } from "@/components/ui/scroll-area"
 import { useRouter } from "next/navigation";
 import React, { Suspense } from "react";
 import ShareButton from "@/components/ShareButton";
-
 
 export default function TopicPage({ params }: {params: Promise<{slug: string}>}) {
   const router = useRouter();
@@ -31,7 +28,7 @@ export default function TopicPage({ params }: {params: Promise<{slug: string}>})
 
   return (
     <MaxWidthWrapper>
-      <section className="p-4 flex flex-col justify-center items-center w-full">
+      <section className="p-4 flex flex-col justify-center items-center gap-4 w-full">
         <div className="flex justify-between items-center w-full pb-2 border-b">
           <Button variant="outline" size="icon" className="flex-none m-1" onClick={() => router.back()}>
             <ArrowLeft />
@@ -45,24 +42,23 @@ export default function TopicPage({ params }: {params: Promise<{slug: string}>})
             <ShareButton slug={slug} />
           </div>
         </div>
-        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-2 py-2">
-          <div className="flex justify-center items-center h-96 w-full">
-            <Image
-            src={Cookie}
-            alt={topic.title}
-            className="w-fit max-w-md mb-4"
-            style={{ pointerEvents: "none", userSelect: "none" }}
-            onContextMenu={(e) => e.preventDefault()}
-            />
-          </div>
-          <ScrollArea className="w-full border rounded-md shadow-sm p-4 h-96">
-            <p className="text-balance text-lg font-light text-foreground w-full min-h-full">
-              {topic.explanation}
-            </p>
-          </ScrollArea>
+
+        <div className="flex justify-center items-center w-full dark:invert">
+          <Image
+          src={topic.image}
+          alt={topic.title}
+          className="w-fit max-w-md"
+          width={500}
+          height={600}
+          style={{ pointerEvents: "none", userSelect: "none" }}
+          onContextMenu={(e) => e.preventDefault()}
+          />
         </div>
-        <div className="flex flex-col justify-center items-center w-full p-6 border rounded-md shadow-sm ">
-          <div className="w-full">
+
+        <div className="text-wrap text-lg font-light text-foreground w-full min-h-full whitespace-pre-line p-4 text-justify">{topic.explanation}</div>
+
+        <div className="flex flex-col justify-center items-center w-full border rounded-md shadow-sm ">
+          <div className="w-full flex justify-center items-center">
             {PlaygroundComponent ? (
               <Suspense fallback={
                 <div className="flex gap-2">
@@ -90,5 +86,3 @@ export default function TopicPage({ params }: {params: Promise<{slug: string}>})
     </MaxWidthWrapper>
   );
 }
-
-
