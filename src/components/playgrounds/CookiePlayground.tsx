@@ -70,7 +70,7 @@ export default function CookiePlayground() {
   };
 
   return (
-    <div className="flex flex-col items-center w-full p-1 md:p-2 gap-4">
+    <div className="flex flex-col items-center w-full p-4 md:p-6 gap-4">
       <div className="flex justify-between items-center w-full border-b pb-4">
         <h1 className="text-xl font-bold leading-tight tracking-tighter md:text-2xl lg:leading-[1.1] text-ellipsis">Cookie Playground</h1>
         <div>

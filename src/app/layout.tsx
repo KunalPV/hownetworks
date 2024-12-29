@@ -21,7 +21,6 @@ export const metadata: Metadata = {
   description: "Websites are edging you with cookies and trackers, gooning over every click you make. It’s time to finish the job, mog their algorithms, and rizz-proof your online game.",
   icons: {
     icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
     apple: "/apple-touch-icon.png",
   }
 };

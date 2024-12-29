@@ -38,8 +38,8 @@ export default function Navbar() {
             </div>
           </div>
           <div className="flex justify-center items-center gap-2">
-            <Link href="https://github.com/cope-ai/hownetworks" target="_blank" rel="noopener noreferrer">
-              <Button variant="link" size="icon">
+            <Link href="https://github.com/cope-ai/hownetworks" target="_blank" rel="noopener noreferrer" >
+              <Button variant="link" size="icon" className="hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-md h-8 w-8 px-0">
                 <Github />
               </Button>
             </Link>
