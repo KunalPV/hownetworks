@@ -1,18 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import React, { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
 
 export default function PermissionsPlayground() {
   const [isPermissionGranted, setIsPermissionGranted] = useState(false);
@@ -143,9 +133,9 @@ export default function PermissionsPlayground() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
         {/* Camera Feed */}
-        <div className="border border-gray-300 p-2">
+        <div className="p-4 border rounded-lg shadow w-full h-64 flex justify-center items-center bg-gray-100">
           {cameraStream ? (
             <video
               autoPlay
@@ -156,27 +146,33 @@ export default function PermissionsPlayground() {
               className="w-full h-full"
             />
           ) : (
-            <p className="text-gray-500">Camera feed will appear here</p>
+            <p className="text-gray-500 text-center">Camera feed will appear here</p>
           )}
         </div>
 
-        {/* Location */}
-        <div className="border border-gray-300 p-2">
-          {location ? (
-            <p className="text-gray-700 al">{location}</p>
-          ) : (
-            <p className="text-gray-500">Location will appear here</p>
-          )}
-        </div>
+        <div className="p-4 border rounded-lg shadow w-full h-64 flex flex-col justify-center items-center bg-gray-100">
+          {/* Audio Waveform */}
+          <div className="p-2 w-full h-2/3 border-b">
+            {isPermissionGranted ? (
+              <canvas
+                ref={audioRef}
+                width="275"
+                height="150"
+                className="border border-gray-300"
+              ></canvas>
+            ) : (
+              <p className="text-gray-500 text-center">Microphone will appear here</p>
+            )}
+          </div>
 
-        {/* Audio Waveform */}
-        <div className="border border-gray-300 p-2">
-          <canvas
-            ref={audioRef}
-            width="275"
-            height="150"
-            className="border border-gray-300"
-          ></canvas>
+          {/* Location */}
+          <div className="p-2 w-full text-center h-1/3">
+            {location ? (
+              <p className="text-gray-700 al">{location}</p>
+            ) : (
+              <p className="text-gray-500">Location will appear here</p>
+            )}
+          </div>
         </div>
       </div>
     </div>
