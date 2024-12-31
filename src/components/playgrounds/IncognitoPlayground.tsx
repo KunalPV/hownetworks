@@ -60,7 +60,7 @@ export default function IncognitoPlayground() {
             {!isIncognito ? "In this playground, you can explore how data visibility changes when browsing in normal mode versus incognito mode. The table below shows the types of data that are typically stored in a browser during a normal session, such as history, cookies, and site data. However, in incognito mode, much of this data is either not stored or only temporarily accessible, ensuring a higher degree of privacy." : "You are currently viewing this playground in incognito mode. The table below demonstrates how most data, such as history, cookies, and site data, is not stored or is only temporarily accessible. While incognito mode provides enhanced privacy, it doesn’t make you completely anonymous—websites can still collect limited information like your IP address and browser details."}
           </p>
           <p className="text-sm text-center text-gray-500">
-            Note: As not all browsers allow distinguishing between normal and incognito modes, we recommend using Chrome for accurate results.
+            Note: This simulation works on almost all the browsers, except a few exceptions.
           </p>
           {!isIncognito && (
             <div className="flex flex-col justify-center items-center gap-1">

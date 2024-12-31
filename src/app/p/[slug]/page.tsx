@@ -5,10 +5,10 @@ import { topics } from "@/data/topic";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { ArrowLeft, FlaskConicalOff, RotateCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { Suspense } from "react";
 import ShareButton from "@/components/ShareButton";
+import ImageModel from "@/components/ImageModel";
 
 export default function TopicPage({ params }: {params: Promise<{slug: string}>}) {
   const router = useRouter();
@@ -44,15 +44,7 @@ export default function TopicPage({ params }: {params: Promise<{slug: string}>})
         </div>
 
         <div className="flex justify-center items-center w-full dark:invert">
-          <Image
-          src={topic.image}
-          alt={topic.title}
-          className="w-fit max-w-md"
-          width={500}
-          height={600}
-          style={{ pointerEvents: "none", userSelect: "none" }}
-          onContextMenu={(e) => e.preventDefault()}
-          />
+          <ImageModel imageSrc={topic.image} imageAlt={topic.title} />
         </div>
 
         <div className="text-wrap text-lg font-light text-foreground w-full min-h-full whitespace-pre-line p-4 text-justify">{topic.explanation}</div>
