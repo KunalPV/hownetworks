@@ -155,7 +155,7 @@ Interact with each module to understand networking concepts.
 Toggle between light and dark modes for a personalized experience.
 
 ## Contributing
-[Contributions](https://github.com/nishchintmakode/hownetworks/blob/main/CONTRIBUTING.md) are welcome! Follow these steps to contribute:
+[Contributions](https://github.com/cope-ai/hownetworks/blob/main/CONTRIBUTING.md) are welcome! Follow these steps to contribute:
 
 1. Fork the repository.
 2. Create a new branch:
