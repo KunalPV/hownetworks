@@ -133,7 +133,7 @@ Follow these steps to get the project up and running on your local machine:
    ```bash
    npm install
    ```
-### or
+   ### or
    ```bash
    yarn install
    ```
@@ -142,7 +142,7 @@ Follow these steps to get the project up and running on your local machine:
    ```bash
    npm run dev
    ```
-### or
+   ### or
    ```bash
    yarn dev
    ```
