@@ -46,7 +46,7 @@ This project aims to break down complex networking concepts into simple, interac
 This repository is structured as follows:
 ```
 Directory structure:
-└── nishchintmakode-hownetworks/
+└── cope-ai-hownetworks/
     ├── public/
     │   └── topic-images/
     ├── next.config.ts
@@ -121,12 +121,12 @@ Follow these steps to get the project up and running on your local machine:
 ### Steps
 1. Clone the repository:
    ```bash
-   git clone https://github.com/nishchintmakode/hownetworks.git
+   git clone https://github.com/cope-ai/hownetworks.git
    ```
 
 2. Navigate to project directory:
    ```bash
-   cd nishchintmakode-hownetworks
+   cd cope-ai-hownetworks
    ```
 
 3. Install dependencies:
