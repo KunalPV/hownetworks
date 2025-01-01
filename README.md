@@ -44,7 +44,7 @@ This project aims to break down complex networking concepts into simple, interac
 ## Directory Structure
 
 This repository is structured as follows:
-
+```
 Directory structure:
 └── nishchintmakode-hownetworks/
     ├── public/
@@ -109,6 +109,7 @@ Directory structure:
             ├── about/
             │   └── page.tsx
             └── layout.tsx
+```
 
 ## Installation
 Follow these steps to get the project up and running on your local machine:
@@ -132,7 +133,7 @@ Follow these steps to get the project up and running on your local machine:
    ```bash
    npm install
    ```
-# or
+### or
    ```bash
    yarn install
    ```
@@ -141,7 +142,7 @@ Follow these steps to get the project up and running on your local machine:
    ```bash
    npm run dev
    ```
-# or
+### or
    ```bash
    yarn dev
    ```
