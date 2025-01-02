@@ -1,6 +1,7 @@
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -31,6 +32,7 @@ export default function ImageModel({imageSrc, imageAlt}: ImageModelProps) {
       <DialogContent className="max-w-2xl">
         <DialogHeader>
           <DialogTitle>{imageAlt}</DialogTitle>
+          <DialogDescription></DialogDescription>
         </DialogHeader>
         <div className="w-full flex justify-center dark:invert border rounded-lg">
           <Image

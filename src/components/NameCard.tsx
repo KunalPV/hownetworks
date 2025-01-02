@@ -28,12 +28,18 @@ export function NameCard({ creatorName, fullName, designation, avatarURL, social
   return (
     <HoverCard>
       <HoverCardTrigger asChild>
-        <Button variant="link" className="p-1 underline font-semibold">@{creatorName}</Button>
+        <Button 
+          variant="link"
+          className="p-1 underline font-semibold"
+          aria-label={`View details of ${creatorName}`}
+        >
+          @{creatorName}
+        </Button>
       </HoverCardTrigger>
       <HoverCardContent className="w-70">
         <div className="flex justify-between space-x-4">
           <Avatar>
-            <AvatarImage src={avatarURL} />
+            <AvatarImage src={avatarURL} alt={`${fullName}'s avatar`} />
             <AvatarFallback>VC</AvatarFallback>
           </Avatar>
           <div className="">
@@ -43,11 +49,21 @@ export function NameCard({ creatorName, fullName, designation, avatarURL, social
             </p>
             <Separator className="my-2" />
             <div className="flex h-5 items-center space-x-4 text-sm">
-              <Link href={socialsURL.github} target="_blank" rel="noopener noreferrer">
+              <Link
+                href={socialsURL.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Visit ${fullName}'s GitHub profile`}
+              >
                 <Button variant="link" size="icon"><Github /></Button>
               </Link>
               <Separator orientation="vertical" />
-              <Link href={socialsURL.linkedIn} target="_blank" rel="noopener noreferrer">
+              <Link 
+                href={socialsURL.linkedIn}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Visit ${fullName}'s LinkedIn profile`}
+              >
                 <Button variant="link" size="icon"><Linkedin /></Button>
               </Link>
             </div>

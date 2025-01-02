@@ -12,16 +12,21 @@ export function ModeToggle() {
     setTheme(resolvedTheme === "dark" ? "light" : "dark");
   }, [resolvedTheme, setTheme]);
 
+  // Fallback for hydration or undefined `resolvedTheme`
+  const isDarkMode = resolvedTheme === "dark";
+
   return (
     <Toggle
       onClick={toggleTheme}
       aria-label="Toggle theme"
+      aria-pressed={isDarkMode}
       className="group/toggle h-8 w-8 px-0"
     >
-      {/* Show SunIcon when dark theme is active */}
-      <SunIcon className="hidden [html.dark_&]:block h-4 w-4" />
-      {/* Show MoonIcon when light theme is active */}
-      <MoonIcon className="hidden [html.light_&]:block h-4 w-4" />
+      {isDarkMode ? (
+        <SunIcon className="h-4 w-4" aria-hidden="true" />
+      ) : (
+        <MoonIcon className="h-4 w-4" aria-hidden="true" />
+      )}
     </Toggle>
   );
 }

@@ -1,31 +1,32 @@
+"use client"
+
+import { useEffect } from "react";
+import { v4 as uuidv4 } from "uuid";
 import CardContainer from "@/components/CardContainer";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
-import { NameCard } from "@/components/NameCard";
-import { creators } from "@/data/creator";
+import { postVisitorData } from "@/services/postVisitorData";
+import HeadlineSection from "@/components/HeadlineSection";
 
 export default function Home() {
+  useEffect(() => {
+    const logVisitor = async () => {
+      try {
+        const visitorId = `${uuidv4()}-${Date.now()}`;
+        await postVisitorData(visitorId);
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      } catch (error) {
+        throw new Error("Failed to post visitor data.");
+      }
+    };
+
+    logVisitor();
+  }, []);
+
   return (
+    // Main container for the homepage
     <div className="max-w-full flex flex-col justify-center items-center md:max-w-full mt-10">
       <MaxWidthWrapper>
-        <section className=" flex flex-col justify-center items-start m-4 pb-4 px-4 gap-1 border-b">
-          <h1 className="text-4xl font-bold leading-tight tracking-tighter md:text-5xl lg:leading-[1.1]">The Internet&apos;s Black Box Economy.</h1>
-          <p className="text-xl leading-tight tracking-tight md:text-2xl flex flex-col items-start justify-start w-full">
-            <span>
-              Think the internet is free? Think again.
-            </span>
-            <span>
-              Websites trade your clicks, preferences, and actions like currency.
-            </span>
-          </p>
-          <div className="flex justify-center items-center leading-tight tracking-tight">
-            <span>
-              Designed and built by
-            </span>
-            <NameCard {...creators[0]} />
-            <span>and</span>
-            <NameCard {...creators[1]} />
-          </div>
-        </section>
+        <HeadlineSection />
         <section className="flex flex-col justify-center items-center w-full">
           <CardContainer />
         </section>
