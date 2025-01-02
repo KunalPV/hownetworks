@@ -88,7 +88,7 @@ export default function LocationPlayground() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl px-6">
         {/* Left Box: Map Viewer */}
-        <div className="p-4 border rounded-lg shadow w-full h-80 flex justify-center items-center bg-gray-100">
+        <div className="border rounded-lg shadow w-full h-80 flex justify-center items-center bg-gray-100">
           {isDataFetched ? (
             <CustomMap
               latitude={parseFloat(ipData.latitude) || 0}

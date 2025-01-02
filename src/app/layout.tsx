@@ -1,35 +1,24 @@
-
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Metadata } from "next";
+import { geistSans, geistMono } from "@/lib/fonts";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import ThemeProviderWrapper from "@/components/ThemeProviderWrapper";
 import { Toaster } from "@/components/ui/toaster"
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "HowNetWorks - Edging and Gooning Over Your Data",
-  description: "Websites are edging you with cookies and trackers, gooning over every click you make. It’s time to finish the job, mog their algorithms, and rizz-proof your online game.",
+  title: "HowNetWorks - Demystifying the Internet's Hidden Mechanics",
+  description: "Explore the secrets of the digital world with HowNetWorks. Learn about internet through interactive playgrounds and insights into how the internet collects and uses your data.",
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png",
   }
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+interface RootLayoutProps {
   children: React.ReactNode;
-}>) {
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body

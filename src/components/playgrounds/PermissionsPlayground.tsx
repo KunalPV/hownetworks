@@ -96,7 +96,7 @@ export default function PermissionsPlayground() {
           const { latitude, longitude } = position.coords;
           try {
             const response = await fetch(
-              `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=e638a55a5fce4266a48351c10e682a31`
+              `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=NEXT_PUBLIC_OPEN_CAGE_API_KEY`
             );
             const data = await response.json();
             if (data.results.length > 0) {

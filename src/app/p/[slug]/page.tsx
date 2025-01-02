@@ -3,28 +3,49 @@
 import { notFound } from "next/navigation";
 import { topics } from "@/data/topic";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
-import { ArrowLeft, FlaskConicalOff, RotateCw } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-import React, { Suspense } from "react";
+import React, { Suspense, useMemo } from "react";
 import ShareButton from "@/components/ShareButton";
 import ImageModel from "@/components/ImageModel";
+import LoadingSpinner from "@/components/LoadingSpinner";
+import { PlaygroundFallback } from "@/components/PlaygroundFallback";
+import ErrorBoundary from "@/components/ErrorBoundry";
 
-export default function TopicPage({ params }: {params: Promise<{slug: string}>}) {
+export default function TopicPage({ params }: { params: Promise<{ slug: string }> }) {
   const router = useRouter();
-  const { slug } = React.use(params);
+  const [slug, setSlug] = React.useState<string | null>(null);
+
+  React.useEffect(() => {
+    async function fetchSlug() {
+      const resolvedParams = await params;
+      setSlug(resolvedParams.slug);
+    }
+    fetchSlug();
+  }, [params]);
 
   // Find the topic by slug
-  const topic = topics.find((t) => t.slug === slug);
+  const topic = useMemo(() => topics.find((t) => t.slug === slug) ?? null, [slug]);
+
+  if (!slug) {
+    return (
+      <LoadingSpinner />
+    );
+  }
 
   if (!topic) {
-    notFound(); // Return 404 if the slug doesn't match any topic
+    notFound();
   }
 
   // Dynamically load the playground component
-  const PlaygroundComponent = React.lazy(() =>
-    import(`@/components/playgrounds/${topic.playgroundComponent}`).then((mod) => ({ default: mod.default }))
-  );
+  const PlaygroundComponent = topic.playgroundComponent
+    ? React.lazy(() =>
+        import(`@/components/playgrounds/${topic.playgroundComponent}`).then(
+          (mod) => ({ default: mod.default })
+        )
+      )
+    : null;
 
   return (
     <MaxWidthWrapper>
@@ -52,27 +73,15 @@ export default function TopicPage({ params }: {params: Promise<{slug: string}>})
         <div className="flex flex-col justify-center items-center w-full border rounded-md shadow-sm ">
           <div className="w-full flex justify-center items-center">
             {PlaygroundComponent ? (
-              <Suspense fallback={
-                <div className="flex gap-2">
-                  <p>Loading Playground...</p>
-                  <RotateCw className="animate-spin" />
-                </div>
-              }>
-                <PlaygroundComponent />
-              </Suspense>
+              <ErrorBoundary fallback={<PlaygroundFallback hasPlayground={false} />}>
+                <Suspense fallback={<PlaygroundFallback hasPlayground={true} />}>
+                  <PlaygroundComponent />
+                </Suspense>
+              </ErrorBoundary>
             ) : (
-              <div>
-                <div className="pb-4 border-b w-full text-center">
-                  <h2 className="text-xl font-bold leading-tight tracking-tighter md:text-2xl lg:leading-[1.1] text-ellipsis">User Playground</h2>
-                </div>
-                <div className="flex justify-center items-center gap-2 w-full">
-                  <p>No playground available for this topic.</p>
-                  <FlaskConicalOff />
-                </div>
-              </div>
+              <PlaygroundFallback hasPlayground={false} />
             )}
           </div>
-
         </div>
       </section>
     </MaxWidthWrapper>
