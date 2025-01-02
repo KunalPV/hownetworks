@@ -47,68 +47,81 @@ This repository is structured as follows:
 ```
 Directory structure:
 └── cope-ai-hownetworks/
-    ├── public/
-    │   └── topic-images/
+    ├── README.md
+    ├── CONTRIBUTING.md
+    ├── LICENSE
+    ├── components.json
+    ├── eslint.config.mjs
     ├── next.config.ts
     ├── package.json
     ├── postcss.config.mjs
-    ├── components.json
-    ├── eslint.config.mjs
     ├── tailwind.config.ts
-    ├── LICENSE
     ├── tsconfig.json
-    ├── README.md
+    ├── public/
+    │   └── topic-images/
     └── src/
+        ├── app/
+        │   ├── globals.css
+        │   ├── layout.tsx
+        │   ├── page.tsx
+        │   ├── impact/
+        │   │   └── page.tsx
+        │   └── p/
+        │       └── [slug]/
+        │           └── page.tsx
         ├── components/
-        │   ├── DataTable.tsx
-        │   ├── MaxWidthWrapper.tsx
-        │   ├── CustomMap.tsx
-        │   ├── ModeToggle.tsx
-        │   ├── ShareButton.tsx
-        │   ├── Navbar.tsx
-        │   ├── ui/
-        │   │   ├── toaster.tsx
-        │   │   ├── input.tsx
-        │   │   ├── table.tsx
-        │   │   ├── label.tsx
-        │   │   ├── dropdown-menu.tsx
-        │   │   ├── toast.tsx
-        │   │   ├── alert-dialog.tsx
-        │   │   ├── hover-card.tsx
-        │   │   ├── button.tsx
-        │   │   ├── scroll-area.tsx
-        │   │   ├── avatar.tsx
-        │   │   ├── separator.tsx
-        │   │   ├── toggle.tsx
-        │   │   └── dialog.tsx
-        │   ├── CardContainer.tsx
-        │   ├── NameCard.tsx
-        │   ├── ImageModel.tsx
         │   ├── Card.tsx
-        │   ├── playgrounds/
-        │   │   ├── PermissionsPlayground.tsx
-        │   │   ├── IncognitoPlayground.tsx
-        │   │   ├── DeviceInfoPlayground.tsx
-        │   │   ├── LocationPlayground.tsx
-        │   │   └── CookiePlayground.tsx
+        │   ├── CardContainer.tsx
+        │   ├── CustomMap.tsx
+        │   ├── DataTable.tsx
+        │   ├── ErrorBoundry.tsx
+        │   ├── HeadlineSection.tsx
+        │   ├── ImageModel.tsx
+        │   ├── LoadingSpinner.tsx
+        │   ├── MaxWidthWrapper.tsx
+        │   ├── ModeToggle.tsx
+        │   ├── NameCard.tsx
+        │   ├── Navbar.tsx
+        │   ├── PlaygroundFallback.tsx
+        │   ├── ShareButton.tsx
         │   ├── ThemeProviderWrapper.tsx
-        │   └── theme-provider.tsx
-        ├── lib/
-        │   └── utils.ts
+        │   ├── theme-provider.tsx
+        │   ├── playgrounds/
+        │   │   ├── CookiePlayground.tsx
+        │   │   ├── DeviceInfoPlayground.tsx
+        │   │   ├── IncognitoPlayground.tsx
+        │   │   ├── LocationPlayground.tsx
+        │   │   └── PermissionsPlayground.tsx
+        │   └── ui/
+        │       ├── alert-dialog.tsx
+        │       ├── avatar.tsx
+        │       ├── button.tsx
+        │       ├── card.tsx
+        │       ├── chart.tsx
+        │       ├── dialog.tsx
+        │       ├── dropdown-menu.tsx
+        │       ├── hover-card.tsx
+        │       ├── input.tsx
+        │       ├── label.tsx
+        │       ├── scroll-area.tsx
+        │       ├── separator.tsx
+        │       ├── table.tsx
+        │       ├── toast.tsx
+        │       ├── toaster.tsx
+        │       └── toggle.tsx
         ├── data/
-        │   ├── topic.ts
-        │   └── creator.ts
+        │   ├── creator.ts
+        │   └── topic.ts
         ├── hooks/
         │   └── use-toast.ts
-        └── app/
-            ├── page.tsx
-            ├── globals.css
-            ├── p/
-            │   └── [slug]/
-            │       └── page.tsx
-            ├── about/
-            │   └── page.tsx
-            └── layout.tsx
+        ├── lib/
+        │   ├── firebase.ts
+        │   ├── fonts.ts
+        │   ├── transformVisitorData.ts
+        │   └── utils.ts
+        └── services/
+            ├── getVisitorData.ts
+            └── postVisitorData.ts
 ```
 
 ## Installation
